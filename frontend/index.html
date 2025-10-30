@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎯 Quiz Master</h1>
+        <nav>
+            <button onclick="showView('list')" class="nav-btn active" id="list-btn">All Quizzes</button>
+            <button onclick="showView('create')" class="nav-btn" id="create-btn">Create Quiz</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Quiz List View -->
+        <div id="list-view" class="view active">
+            <div class="view-header">
+                <h2>Available Quizzes</h2>
+                <button onclick="loadQuizzes()" class="refresh-btn">🔄 Refresh</button>
+            </div>
+            <div id="quiz-list" class="quiz-grid">
+                <p class="loading">Loading quizzes...</p>
+            </div>
+        </div>
+
+        <!-- Create Quiz View -->
+        <div id="create-view" class="view">
+            <h2>Create New Quiz</h2>
+            <form id="quiz-form" onsubmit="createQuiz(event)">
+                <div class="form-group">
+                    <label for="title">Quiz Title *</label>
+                    <input type="text" id="title" required placeholder="Enter quiz title" maxlength="200">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4" placeholder="Enter quiz description (optional)" maxlength="500"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Create Quiz</button>
+                <div id="form-message" class="message"></div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with HTML + Flask + GCP</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

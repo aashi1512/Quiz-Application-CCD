@@ -1,0 +1,35 @@
+runtime: python39
+
+handlers:
+# Serve index.html as the main page
+- url: /
+  static_files: index.html
+  upload: index.html
+
+# Serve CSS files
+- url: /style.css
+  static_files: style.css
+  upload: style.css
+
+# Serve JavaScript files
+- url: /app.js
+  static_files: app.js
+  upload: app.js
+
+# Serve any other static files
+- url: /(.*)
+  static_files: \1
+  upload: (.*)
+```
+
+### Step 2: Create `.gcloudignore`
+
+**File: `frontend/.gcloudignore`**
+```
+.git
+.gitignore
+node_modules/
+.DS_Store
+.vscode/
+*.log
+README.md
